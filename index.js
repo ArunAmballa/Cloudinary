@@ -6,7 +6,10 @@ require("dotenv").config()
 
 //Middlewares
 app.use(express.json())
-app.use(fileUpload()); //we use this middleware to upload files to server.
+app.use(fileUpload({
+    useTempFiles:true,
+    tempFileDir:'/tmp/'
+})); //we use this middleware to upload files to server.
 
 const PORT=process.env.PORT
 
